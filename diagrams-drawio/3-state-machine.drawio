@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="State machine" id="state1">
+    <mxGraphModel dx="2060" dy="1068" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="C0FDacMUw-gk4nztZzxA-1" edge="1" parent="1" source="received" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="fallback" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="received" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Received" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="classifying" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Classifying" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="valfail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F0EC;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="ValidationFailed" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F0EC;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="ManualFallback" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="riskeval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="RiskEvaluated" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="autorouted" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="AutoRouted" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="pending" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E2761;fontColor=#FFFFFF;strokeColor=#1E2761;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="PendingApproval" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="approved" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Approved" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="rejected" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F0EC;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Rejected" vertex="1">
+          <mxGeometry height="60" width="160" x="580" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="routed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Routed" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="closed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3E5C9A;fontColor=#FFFFFF;strokeColor=#3E5C9A;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" value="Closed" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="received" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="classifying">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="classifying" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="valfail" value="retrieval + LLM">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="valfail" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="classifying" value="retry (max 1)">
+          <mxGeometry relative="1" y="-40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="valfail" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="fallback" value="retry epuizat">
+          <mxGeometry relative="1" y="-40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="classifying" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="riskeval" value="JSON valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="riskeval" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="autorouted" value="risc scazut">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="riskeval" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="pending" value="risc ridicat">
+          <mxGeometry relative="1" x="-0.2857" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="pending" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="approved" value="om aproba">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="pending" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="rejected" value="om respinge">
+          <mxGeometry relative="1" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="approved" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="routed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="autorouted" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="routed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="routed" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="closed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

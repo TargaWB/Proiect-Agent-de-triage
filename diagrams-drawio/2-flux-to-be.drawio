@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Flux TO-BE" id="tobe1">
+    <mxGraphModel dx="1373" dy="712" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="Tichet nou" vertex="1">
+          <mxGeometry height="120" width="180" x="40" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="Retrieval&#xa;istoric + KB (ChromaDB)" vertex="1">
+          <mxGeometry height="120" width="190" x="260" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="Clasificare AI&#xa;prioritate, categorie, echipa" vertex="1">
+          <mxGeometry height="120" width="190" x="490" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;font face=&quot;Arial&quot; data-font-src=&quot;https://fonts.cdnfonts.com/css/arial.woff&quot;&gt;Validare structurata&lt;br&gt;schema Pydantic&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="190" x="720" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E2761;strokeColor=#1E2761;strokeWidth=1;fontSize=13;fontStyle=1;fontColor=#FFFFFF;align=center;verticalAlign=middle;spacing=8;" value="&lt;font face=&quot;Arial&quot; data-font-src=&quot;https://fonts.cdnfonts.com/css/arial.woff&quot;&gt;Decizie&lt;br&gt;auto / aprobare umana&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="190" x="950" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;font face=&quot;Arial&quot; data-font-src=&quot;https://fonts.cdnfonts.com/css/arial.woff&quot;&gt;Rutare + audit&lt;br&gt;jurnal complet&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="190" x="1180" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6FB;strokeColor=#D9DEEB;fontSize=12;align=left;verticalAlign=top;spacing=10;fontStyle=2;" value="&lt;font face=&quot;Arial&quot; style=&quot;font-style: normal;&quot;&gt;Diferenta fata de AS-IS: dispecerul uman nu mai citeste fiecare tichet de la zero, intervine doar la incertitudine sau risc ridicat (ex. P1, fara precedent similar).&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="1330" x="40" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="s3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="s4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="s5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" target="s6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

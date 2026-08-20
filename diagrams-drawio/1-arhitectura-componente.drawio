@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Arhitectura - componente" id="arch1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="input" value="Input&#10;Tichet (UI Streamlit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="retrieval" value="Retrieval&#10;ChromaDB (embeddings)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="140" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="date" value="Date&#10;Tichete istorice + KB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="420" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="model" value="Model / LLM&#10;Few-shot (Groq)&#10;LoRA (Ollama)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E2761;strokeColor=#1E2761;strokeWidth=1;fontSize=13;fontStyle=1;fontColor=#FFFFFF;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="backend" value="Backend&#10;FastAPI + Pydantic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="280" width="170" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="external" value="Sisteme externe&#10;Cozi / echipe tinta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="140" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="output" value="Output&#10;Rutare + explicatie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CADCFC;strokeColor=#C7CEDE;strokeWidth=1;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="420" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="observability" value="Observabilitate&#10;Arize Phoenix (audit trail)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3E5C9A;strokeColor=#3E5C9A;strokeWidth=1;fontSize=13;fontStyle=1;fontColor=#FFFFFF;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="280" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="Separare reasoning / executie: LLM-ul propune un obiect JSON validat cu Pydantic, nu executa niciodata direct. Executia trece prin tool-uri deterministe si, pentru cazuri riscante, prin aprobare umana." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F6FB;strokeColor=#D9DEEB;fontSize=12;align=left;verticalAlign=top;spacing=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="1330" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="input" target="retrieval">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="input" target="date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="retrieval" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="date" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="model" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="backend" target="external">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="backend" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="external" target="observability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#3E5C9A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="output" target="observability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
